@@ -1,0 +1,27 @@
+---
+- name: Check if SELinux config file exists
+  ansible.builtin.stat:
+    path: /etc/selinux/config
+  register: selinux_config_file
+
+- name: Get current SELinux status
+  ansible.builtin.command: getenforce
+  register: selinux_current_status
+  changed_when: false
+  failed_when: false
+  when: selinux_config_file.stat.exists
+
+- name: Disable SELinux in configuration
+  ansible.builtin.lineinfile:
+    path: /etc/selinux/config
+    regexp: '^SELINUX='
+    line: 'SELINUX=disabled'
+  when:
+    - selinux_config_file.stat.exists
+    - selinux_current_status.stdout | default('Disabled') != 'Disabled'
+  notify: Reboot to apply SELinux changes
+
+- name: Skip SELinux tasks (not applicable on this system)
+  ansible.builtin.debug:
+    msg: "SELinux is not installed or already disabled - skipping"
+  when: not selinux_config_file.stat.exists

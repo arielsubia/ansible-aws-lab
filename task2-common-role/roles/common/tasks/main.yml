@@ -1,0 +1,6 @@
+---
+- name: Include package installation tasks
+  ansible.builtin.include_tasks: install_packages.yml
+
+- name: Include SELinux management tasks
+  ansible.builtin.include_tasks: selinux.yml

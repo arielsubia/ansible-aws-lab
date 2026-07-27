@@ -1,0 +1,4 @@
+---
+# Default list of packages to install
+# Override this variable to install specific packages
+common_packages: []

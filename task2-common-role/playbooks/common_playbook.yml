@@ -1,0 +1,17 @@
+---
+- name: Apply common configuration to managed nodes
+  hosts: managed_nodes
+  become: true
+
+  roles:
+    - role: common
+      vars:
+        common_packages:
+          - curl
+          - lsof
+          - mc
+          - nano
+          - tar
+          - unzip
+          - vim
+          - zip
