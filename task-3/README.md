@@ -1,4 +1,4 @@
-# Task 3 - Collectd Role with Install/Remove Logic (60 pts)
+# Task 3 - Collectd Role with Install/Remove Logic
 
 ## Objective
 

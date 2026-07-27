@@ -1,4 +1,4 @@
-# Task 2 - Common Role with Packages and SELinux (30 pts)
+# Task 2 - Common Role with Packages and SELinux
 
 ## Objective
 

@@ -1,4 +1,4 @@
-# Task 1 - Ansible Installation and Ad-hoc Commands (10 pts)
+# Task 1 - Ansible Installation and Ad-hoc Commands
 
 ## Objective
 
@@ -14,7 +14,7 @@ Install Ansible on the control node, configure an inventory, run ad-hoc commands
 
 ```bash
 # Connect to control node
-ssh -i ~/.ssh/ansible-key.pem ubuntu@<control-public-ip>
+ssh -i ~/.ssh/final-task-epam-key.pem ubuntu@<control-public-ip>
 
 # Install Ansible
 sudo apt update
@@ -169,7 +169,7 @@ node2                      : ok=3    changed=0    ...
 ## File Structure
 
 ```
-task1-adhoc-and-playbooks/
+task-1/
 ├── inventory/
 │   └── hosts.yml          # Inventory with managed_nodes group
 ├── playbooks/
@@ -179,13 +179,13 @@ task1-adhoc-and-playbooks/
 
 ## Summary
 
-| Step | Command/Action | Points |
-|------|---------------|--------|
-| Ansible installation | `apt install ansible` | Part of setup |
-| Ping | `ansible.builtin.ping` | Ad-hoc |
-| System info | `ansible.builtin.command` with uname | Ad-hoc |
-| Uptime | `ansible.builtin.command` with uptime | Ad-hoc |
-| Package install | `ansible.builtin.apt` with become | Ad-hoc |
-| Facts - hostname | `ansible.builtin.setup` filter | Facts |
-| Facts - distribution | `ansible.builtin.setup` filter | Facts |
-| Network interfaces | Playbook execution | Playbook |
+| Step | Command/Action |
+|------|---------------|
+| Ansible installation | `apt install ansible` |
+| Ping | `ansible.builtin.ping` |
+| System info | `ansible.builtin.command` with uname |
+| Uptime | `ansible.builtin.command` with uptime |
+| Package install | `ansible.builtin.apt` with become |
+| Facts - hostname | `ansible.builtin.setup` filter |
+| Facts - distribution | `ansible.builtin.setup` filter |
+| Network interfaces | Playbook execution |
