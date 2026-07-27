@@ -29,7 +29,6 @@ practical_task_ansible/
 │   ├── playbooks/
 │   ├── inventory/
 │   └── README.md
-├── best_practices_captures/    # Screenshots from L5: Ansible Best Practices (local only)
 └── README.md                   # This file
 ```
 
@@ -109,50 +108,6 @@ This project follows [Conventional Commits](https://www.conventionalcommits.org/
 | `docs` | Documentation updates |
 | `chore` | Maintenance, scaffolding |
 | `refactor` | Code restructuring |
-
-## Submission Guidelines
-
-### PDF Report Screenshots
-
-For the submission PDF, capture the following screenshots in order:
-
-#### Infrastructure
-1. `terraform apply` output showing 3 instances created
-2. AWS Console showing running EC2 instances
-
-#### Task 1
-3. `ansible --version` output
-4. `ansible managed_nodes -m ansible.builtin.ping` - successful ping
-5. `ansible managed_nodes -m ansible.builtin.command -a "uname -a"` output
-6. `ansible managed_nodes -m ansible.builtin.command -a "uptime"` output
-7. `ansible managed_nodes -m ansible.builtin.apt -a "name=htop state=present" --become` output
-8. `ansible managed_nodes -m ansible.builtin.setup -a "filter=ansible_hostname"` output
-9. `ansible managed_nodes -m ansible.builtin.setup -a "filter=ansible_distribution"` output
-10. `ansible-playbook playbooks/network_interfaces.yml` output
-
-#### Task 2
-11. `tree roles/common/` showing role structure
-12. First playbook run showing packages installed (changed)
-13. Second playbook run showing idempotency (0 changed)
-14. `dpkg -l` verification of installed packages on nodes
-
-#### Task 3
-15. `tree roles/collectd/` showing role structure
-16. Install playbook run output
-17. `systemctl status collectd` showing service running
-18. `curl http://node1:9103/metrics` showing Prometheus metrics
-19. Remove playbook run output
-20. Verification that service, packages, and configs are removed
-21. Second remove run showing idempotency (0 changed)
-
-### Cleanup
-
-After completing the submission:
-
-```bash
-cd infrastructure
-terraform destroy -var="key_name=your-key-name"
-```
 
 ## Author
 
