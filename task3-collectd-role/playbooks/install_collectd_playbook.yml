@@ -1,0 +1,19 @@
+---
+- name: Install and configure collectd on managed nodes
+  hosts: managed_nodes
+  become: true
+
+  roles:
+    - role: collectd
+      vars:
+        collectd_state: install
+        collectd_prometheus_port: 9103
+        collectd_plugins:
+          - df
+          - processes
+          - protocols
+          - swap
+          - tcpconns
+          - uptime
+          - users
+          - vmem

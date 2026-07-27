@@ -1,0 +1,18 @@
+---
+# Control whether collectd is installed or removed
+# Valid values: install, remove
+collectd_state: install
+
+# Port for Prometheus write plugin
+collectd_prometheus_port: 9103
+
+# List of collectd plugins to enable
+collectd_plugins:
+  - df
+  - processes
+  - protocols
+  - swap
+  - tcpconns
+  - uptime
+  - users
+  - vmem

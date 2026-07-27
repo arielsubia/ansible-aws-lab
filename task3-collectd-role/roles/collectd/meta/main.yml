@@ -1,0 +1,16 @@
+---
+galaxy_info:
+  author: Student
+  description: Role to install or remove collectd with Prometheus write plugin
+  license: MIT
+  min_ansible_version: "2.15"
+  platforms:
+    - name: Ubuntu
+      versions:
+        - jammy
+  galaxy_tags:
+    - monitoring
+    - collectd
+    - prometheus
+
+dependencies: []

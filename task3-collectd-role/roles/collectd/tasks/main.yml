@@ -1,0 +1,8 @@
+---
+- name: Include collectd installation tasks
+  ansible.builtin.include_tasks: install_collectd.yml
+  when: collectd_state == "install"
+
+- name: Include collectd removal tasks
+  ansible.builtin.include_tasks: remove_collectd.yml
+  when: collectd_state == "remove"

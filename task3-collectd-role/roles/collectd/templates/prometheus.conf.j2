@@ -1,0 +1,15 @@
+# Managed by Ansible - do not edit manually
+# Collectd configuration for Prometheus metrics export
+
+# Load the write_prometheus plugin
+LoadPlugin write_prometheus
+
+# Load configured plugins
+{% for plugin in collectd_plugins %}
+LoadPlugin {{ plugin }}
+{% endfor %}
+
+# Configure write_prometheus plugin
+<Plugin write_prometheus>
+  Port "{{ collectd_prometheus_port }}"
+</Plugin>

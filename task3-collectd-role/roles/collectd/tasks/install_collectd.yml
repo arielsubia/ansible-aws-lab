@@ -1,0 +1,30 @@
+---
+- name: Install collectd packages
+  ansible.builtin.apt:
+    name:
+      - collectd
+      - collectd-core
+    state: latest
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Install collectd write_prometheus plugin
+  ansible.builtin.apt:
+    name: collectd-utils
+    state: latest
+
+- name: Deploy collectd Prometheus configuration
+  ansible.builtin.template:
+    src: prometheus.conf.j2
+    dest: /etc/collectd/collectd.conf.d/prometheus.conf
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart collectd
+
+- name: Ensure collectd service is enabled and started
+  ansible.builtin.systemd:
+    name: collectd
+    state: started
+    enabled: true
+    daemon_reload: true
