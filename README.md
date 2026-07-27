@@ -96,19 +96,4 @@ cd ../task-3
 ansible-playbook playbooks/install_collectd_playbook.yml -i inventory/hosts.yml
 ```
 
-## Commit Conventions
 
-This project follows [Conventional Commits](https://www.conventionalcommits.org/):
-
-| Type | Usage |
-|------|-------|
-| `feat(taskN)` | New feature for a specific task |
-| `fix(taskN)` | Bug fix in a specific task |
-| `infra` | Infrastructure changes (Terraform) |
-| `docs` | Documentation updates |
-| `chore` | Maintenance, scaffolding |
-| `refactor` | Code restructuring |
-
-## Author
-
-University practical assignment - Infrastructure Automation course
