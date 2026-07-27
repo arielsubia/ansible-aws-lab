@@ -1,0 +1,18 @@
+---
+- name: Display network interfaces on managed nodes
+  hosts: managed_nodes
+  become: false
+  gather_facts: true
+
+  tasks:
+    - name: Print all network interfaces
+      ansible.builtin.debug:
+        msg: "{{ ansible_interfaces }}"
+
+    - name: Print detailed info for each interface
+      ansible.builtin.debug:
+        msg: >-
+          Interface: {{ item }},
+          IPv4: {{ hostvars[inventory_hostname]['ansible_' + item | replace('-', '_')].ipv4.address | default('N/A') }}
+      loop: "{{ ansible_interfaces }}"
+      when: hostvars[inventory_hostname]['ansible_' + item | replace('-', '_')].ipv4 is defined
