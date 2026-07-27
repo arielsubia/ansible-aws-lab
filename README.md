@@ -11,24 +11,25 @@ practical_task_ansible/
 │   ├── variables.tf            # Configurable parameters
 │   ├── outputs.tf              # Instance IPs and connection info
 │   └── README.md
-├── task1-adhoc-and-playbooks/  # Task 1: Ad-hoc commands & basic playbooks
+├── task-1/                     # Task 1: Ad-hoc commands & basic playbooks
 │   ├── inventory/
 │   │   └── hosts.yml
 │   ├── playbooks/
 │   │   └── network_interfaces.yml
 │   └── README.md
-├── task2-common-role/          # Task 2: Common role (packages + SELinux)
+├── task-2/                     # Task 2: Common role (packages + SELinux)
 │   ├── roles/
 │   │   └── common/
 │   ├── playbooks/
 │   ├── inventory/
 │   └── README.md
-├── task3-collectd-role/        # Task 3: Collectd role (install/remove)
+├── task-3/                     # Task 3: Collectd role (install/remove)
 │   ├── roles/
 │   │   └── collectd/
 │   ├── playbooks/
 │   ├── inventory/
 │   └── README.md
+├── best_practices_captures/    # Screenshots from L5: Ansible Best Practices
 └── README.md                   # This file
 ```
 
@@ -84,15 +85,15 @@ terraform init
 terraform apply
 
 # 2. Run Task 1 - Ad-hoc commands
-cd ../task1-adhoc-and-playbooks
+cd ../task-1
 ansible managed_nodes -m ansible.builtin.ping -i inventory/hosts.yml
 
 # 3. Run Task 2 - Common role
-cd ../task2-common-role
+cd ../task-2
 ansible-playbook playbooks/common_playbook.yml -i inventory/hosts.yml
 
 # 4. Run Task 3 - Collectd role
-cd ../task3-collectd-role
+cd ../task-3
 ansible-playbook playbooks/install_collectd_playbook.yml -i inventory/hosts.yml
 ```
 
