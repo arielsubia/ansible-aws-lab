@@ -29,7 +29,7 @@ practical_task_ansible/
 │   ├── playbooks/
 │   ├── inventory/
 │   └── README.md
-├── best_practices_captures/    # Screenshots from L5: Ansible Best Practices
+├── best_practices_captures/    # Screenshots from L5: Ansible Best Practices (local only)
 └── README.md                   # This file
 ```
 
@@ -47,7 +47,7 @@ All nodes are within the same VPC and security group, allowing SSH access betwee
 
 ## Task Descriptions
 
-### Task 1 - Ad-hoc Commands and Playbooks (10 pts)
+### Task 1 - Ad-hoc Commands and Playbooks
 
 - Install Ansible on the control node
 - Configure inventory with managed nodes
@@ -55,13 +55,13 @@ All nodes are within the same VPC and security group, allowing SSH access betwee
 - Gather facts (hostname, distribution)
 - Write a playbook to display network interfaces
 
-### Task 2 - Common Role (30 pts)
+### Task 2 - Common Role
 
 - Create a role `common` that installs a configurable list of packages
 - Handle SELinux disabling with conditional reboot
 - Demonstrate idempotent execution
 
-### Task 3 - Collectd Role (60 pts)
+### Task 3 - Collectd Role
 
 - Create a role `collectd` with install/remove logic controlled by a variable
 - Use Jinja2 templates for collectd configuration
@@ -120,7 +120,7 @@ For the submission PDF, capture the following screenshots in order:
 1. `terraform apply` output showing 3 instances created
 2. AWS Console showing running EC2 instances
 
-#### Task 1 (10 pts)
+#### Task 1
 3. `ansible --version` output
 4. `ansible managed_nodes -m ansible.builtin.ping` - successful ping
 5. `ansible managed_nodes -m ansible.builtin.command -a "uname -a"` output
@@ -130,13 +130,13 @@ For the submission PDF, capture the following screenshots in order:
 9. `ansible managed_nodes -m ansible.builtin.setup -a "filter=ansible_distribution"` output
 10. `ansible-playbook playbooks/network_interfaces.yml` output
 
-#### Task 2 (30 pts)
+#### Task 2
 11. `tree roles/common/` showing role structure
 12. First playbook run showing packages installed (changed)
 13. Second playbook run showing idempotency (0 changed)
 14. `dpkg -l` verification of installed packages on nodes
 
-#### Task 3 (60 pts)
+#### Task 3
 15. `tree roles/collectd/` showing role structure
 16. Install playbook run output
 17. `systemctl status collectd` showing service running

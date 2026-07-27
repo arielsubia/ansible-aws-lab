@@ -1,6 +1,9 @@
 # Kiro IDE
 .kiro/
 
+# Best practices captures (local only)
+best_practices_captures/
+
 # Terraform
 *.tfstate
 *.tfstate.backup
